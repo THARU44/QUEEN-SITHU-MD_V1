@@ -34,7 +34,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                     surface: 1,
                     message: `✨ 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 𝙱𝚈 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰 ✨`,
                     orderTitle: "",
-                    sellerJid: '94763711930@s.whatsapp.net'
+                    sellerJid: '94704227534@s.whatsapp.net'
                 }
             }
         };
@@ -125,7 +125,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                     surface: 1,
                     message: `✨ 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 𝙱𝚈 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰 ✨`,
                     orderTitle: "",
-                    sellerJid: '94763711930@s.whatsapp.net'
+                    sellerJid: '94704227534@s.whatsapp.net'
                 }
             }
         };
@@ -216,7 +216,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                     surface: 1,
                     message: `✨ 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 𝙱𝚈 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰 ✨`,
                     orderTitle: "",
-                    sellerJid: '94763711930@s.whatsapp.net'
+                    sellerJid: '94704227534@s.whatsapp.net'
                 }
             }
         };
@@ -349,7 +349,7 @@ try {
                     surface: 1,
                     message: `✨ 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 𝙱𝚈 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰 💗`,
                     orderTitle: "",
-                    sellerJid: '94763711930@s.whatsapp.net'
+                    sellerJid: '94704227534@s.whatsapp.net'
                 }
             }
         };
