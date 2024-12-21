@@ -4,7 +4,6 @@ const yn = "*👨‍💻 QUEEN SITHU 👨‍💻*";
 //====================kick=================================
 cmd({
     pattern: "kick",
-    react: "☠️",
     alias: [".."],
     desc: "Kicks replied/quoted user from group.",
     category: "group",
