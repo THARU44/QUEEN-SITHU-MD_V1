@@ -3,7 +3,7 @@ const config = require('../config');
 const {readEnv} = require('../lib/database');
 const os = require('os');
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, fetchJson, runtime, sleep } = require('../lib/functions');
-const imgUrl = 'https://i.ibb.co/cY5Twrw/In-Shot-20241222-002123636.jpg'; // This image URL seems unnecessary
+const imgUrl = 'https://files.catbox.moe/qa2itj.jpg'; // This image URL seems unnecessary
 
 //-----------------------------------------------ALive-----------------------------------------------
 
