@@ -69,7 +69,7 @@ cmd({
     pattern: "menu",
     alias: ["list"],
     desc: "menu the bot",
-    react: "📜",
+    react: "🗒️",
     category: "main"
 },
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
