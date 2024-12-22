@@ -39,7 +39,7 @@ _*This queen sithu md whatsapp bot is made for your easy use. This bot is curren
 
         // Sending the audio message
         await conn.sendMessage(from, {
-            audio: { url: 'https://github.com/mrdinesh595/Mssadu/raw/refs/heads/main/database/menu.mp3' },
+            audio: { url: 'https://github.com/THARU44/SITHUMI/blob/main/database/alive%20.mp3' },
             mimetype: 'audio/mp4', // Corrected mime type
             ptt: true
         }, { quoted: mek });
@@ -97,7 +97,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
 
         await conn.sendMessage(from, {
-            audio: { url: '' },// ඇලිව් එකෙ වොයිස් ලින්ක් එකදාන තැන
+            audio: { url: 'https://github.com/THARU44/SITHUMI/raw/refs/heads/main/database/menu.mp3' },// 
             mimetype: 'audio/mp4', // Corrected mime type
             ptt: true
         }, { quoted: mek });
