@@ -97,7 +97,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
 
         await conn.sendMessage(from, {
-            audio: { url: 'https://github.com/mrdinesh595/Mssadu/raw/refs/heads/main/database/alive.mp3' },
+            audio: { url: 'https://github.com/mrdinesh595/Mssadu/raw/refs/heads/main/database/menu.mp3' },
             mimetype: 'audio/mp4', // Corrected mime type
             ptt: true
         }, { quoted: mek });
