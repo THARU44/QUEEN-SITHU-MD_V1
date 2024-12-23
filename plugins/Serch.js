@@ -28,7 +28,7 @@ try{
 if(!q) return reply(tmsg)
 const result = await fetchJson(`https://www.dark-yasiya-api.site/other/lyrics?text=${q}`)
 if(result.result) reply(`
-*🧚‍♂️⃝ QUEEN SADU MD LYRICS SEARCH 🩷⃟🧚‍♂️*
+*🐦‍🔥 QUEEN SITHU MD LYRICS SEARCH 🐦‍🔥*
 
 *Name* : ${result.result.album}
 
@@ -39,7 +39,7 @@ if(result.result) reply(`
 *LYRICS*: ${result.result.lyric}
 
 ╰───────────◉
-*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙰𝙳𝚄 𝙱𝚈 𝙼𝚁 𝙳𝙸𝙽𝙴𝚂𝙷 👨‍💻*`)
+*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 𝙼𝙳  𝙼𝚁 𝙳𝙸𝙽𝙴𝚂𝙷 👨‍💻*`)
 else reply(cantscg)
 } catch (e) {
 reply(cantscg)
