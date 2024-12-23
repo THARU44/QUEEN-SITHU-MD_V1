@@ -14,7 +14,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const response = await axios.get(apiUrl);
         const data = response.data;
 
-        await conn.sendMessage(from, { image: { url: data.url }, caption: '👧 *Random Anime Girl Image* 👧\n*👨‍💻 Qᴜᴇᴇɴ 𝚜𝚊𝚍𝚞 𝚋𝚢 𝚖𝚛 𝚍𝚒𝚗𝚎𝚜𝚑 👨‍💻*' }, { quoted: mek });
+        await conn.sendMessage(from, { image: { url: data.url }, caption: '👧 *Random Anime Girl Image* 👧\n*🤗 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰 🤗*' }, { quoted: mek });
     } catch (e) {
         console.log(e);
         reply(`Error fetching anime girl image: ${e.message}`);
