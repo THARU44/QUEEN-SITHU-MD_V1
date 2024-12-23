@@ -1,6 +1,6 @@
 const config = require('../config')
 const { cmd, commands } = require('../command') 
-const yn = "*👨‍💻 Qᴜᴇᴇ𝙽 𝚂𝙰𝙳𝚄 👨‍💻*";
+const yn = "*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 👨‍💻*";
 //====================kick=================================
 cmd({
     pattern: "kick",
