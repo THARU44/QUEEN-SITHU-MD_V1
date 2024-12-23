@@ -69,7 +69,7 @@ async (conn, mek, m, { from, q, reply }) => {
 
 ${joke.punchline} 😄
 
-*👨‍💻 Qᴜᴇᴇɴ 𝚜𝚊𝚍𝚞 𝚋𝚢 𝚖𝚛 𝚍𝚒𝚗𝚎𝚜𝚑 👨‍💻*
+*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰 👨‍💻*
 `;
 
         return reply(jokeMessage);
@@ -115,7 +115,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             '⚠️ *Note:* All actions are for demonstration purposes only.',
             '⚠️ *Reminder:* Ethical hacking is the only way to ensure security.',
             '',
-            '*QUEEN SADU-MD-HACKING-COMPLETE ☣*'
+            '*QUEEN SITHU-MD-HACKING-COMPLETE ☣*'
         ];
 
         for (const line of steps) {
