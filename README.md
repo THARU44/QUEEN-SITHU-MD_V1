@@ -1,4 +1,4 @@
-#              QUEEN-SITHU-MD_V1
+<h1>𝐐𝐔𝐄𝐄𝐍 𝐒𝐈𝐓𝐇𝐔-𝐌𝐃 𝐕1</h1>
 
 <p align="center">
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=33&pause=1000&color=5513F7&width=435&lines=QUEEN+SITHU+MD+V+1" alt="Typing SVG" /></a>
