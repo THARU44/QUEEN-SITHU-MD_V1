@@ -11,7 +11,7 @@ const axios = require('axios');
 const { File } = require('megajs');
 const moment = require('moment-timezone');
 
-const ownerNumber = ['94723449646'];
+const ownerNumber = ['94714751593'];
 
 //------------------ Session ---------------------//
 
@@ -22,7 +22,7 @@ if (!fs.existsSync(__dirname + '/session/creds.json')) {
     filer.download((err, data) => {
         if (err) throw err;
         fs.writeFile(__dirname + '/session/creds.json', data, () => {
-            console.log("✅ QUEEN SADU MD| Session downloaded");
+            console.log("✅ QUEEN SITHU MD| Session downloaded");
         });
     });
 }
@@ -40,7 +40,7 @@ async function connectToWA() {
     const { readEnv } = require('./lib/database');
     const config = await readEnv();
     const prefix = config.PREFIX;
-    console.log("✅ QUEEN SADU MD | Connecting");
+    console.log("✅ QUEEN SITHU MD | Connecting");
 
 //------------------ setting input ---------------------//
    
@@ -93,25 +93,25 @@ async function connectToWA() {
                 connectToWA();
             }
         } else if (connection === 'open') {
-            console.log('✅ QUEEN SADU MD | Installing Commands');
+            console.log('✅ QUEEN SITHU MD | Installing Commands');
             const path = require('path');
             fs.readdirSync("./plugins/").forEach((plugin) => {
                 if (path.extname(plugin).toLowerCase() === ".js") {
                     require("./plugins/" + plugin);
                 }
             });
-            console.log('✅ QUEEN SADU MD | Command installed successfully');
-            console.log('✅ QUEEN SADU MD | Bot connected to WhatsApp');
-            let up = `*𝐐𝐔𝐄𝐄𝐍 𝗦𝗔𝗗𝗨 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝗖𝗘 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐁𝐎𝐓 💛*
+            console.log('✅ QUEEN SITHU MD | Command installed successfully');
+            console.log('✅ QUEEN SITHU MD | Bot connected to WhatsApp');
+            let up = `*🐦‍🔥 𝐐𝐔𝐄𝐄𝐍 𝐒𝐈𝐓𝐇𝐔 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝗖𝗘 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐁𝐎𝐓 🐦‍🔥*
 
 *╭─「 ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴍꜱɢ 」*
-*│OWNER*: 𝐌𝐑 𝐃𝐈𝐍𝐄𝐒𝐇
+*│OWNER*: 𝐌𝐑 𝐓𝐇𝐀𝐑𝐔𝐒𝐇𝐀
 *│NUMBER*: +${ownerNumber}
 *│PREFIX*: ${config.PREFIX}
 *╰───────────◈◈►*
 
 *╭──────────◈◈►*
-*│🎗️ SETTING LIST*
+*│🧣 SETTING LIST*
 *│   ───────*
 *│ 1*   *Work Tipe* : *${work}*
 *│ 2*   *Auto Voice* : *${autoVoice}*
@@ -126,11 +126,11 @@ async function connectToWA() {
 *│ 11*  *Welcome* : *${WELCOME}*
 *╰───────────◈◈►*
 
-> *ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ sadu ᴍᴅ*
-> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ᴍʀ ᴅɪɴᴇꜱʜ*`;
+> *𝙼𝚄𝙻𝚃𝙸 𝙳𝙴𝚅𝙸𝙲𝙴 𝚆𝙰 𝙱𝙾𝚃 𝙱𝚈 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 𝙼𝙳*
+> *𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 - 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰*`;
             
             conn.sendMessage(ownerNumber + "@s.whatsapp.net", {
-                image: { url: `https://i.ibb.co/h8fkrRF/In-Shot-20241129-183242921.jpg` },
+                image: { url: `https://files.catbox.moe/w9d14s.jpg` },
                 caption: up
             });
         }
@@ -265,7 +265,7 @@ if (!isReact && senderNumber !== botNumber) {
         if (config.OWNER_REACT === "true") {
             if (senderNumber.includes(ownerNumber)) {
                 if (isReact) return;
-                m.react("💃");
+                m.react("💚");
             }
         }
         
@@ -381,7 +381,7 @@ if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || b
             video: fs.readFileSync("./" + ext),
             mimetype: "video/mp4",
             fileName: `${m.id}.mp4`,
-            caption: "*ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ*> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*" ,
+            caption: "*𝙼𝚄𝙻𝚃𝙸 𝙳𝙴𝚅𝙸𝙲𝙴 𝚆𝙰 𝙱𝙾𝚃 𝙱𝚈 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 𝙼𝙳-𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 - 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰*" ,
             headerType: 4
         };
         await conn.sendMessage(from, buttonMessage,{
@@ -406,9 +406,9 @@ if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || b
                 }
     
                 if (anu.action == 'add') {
-                    conn.sendMessage(anu.id, { text: `Hi @${num.split("@")[0]}, Welcome to ${metadata.subject}\nFeel Free To Introduce Your Self To The Group\n\n*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ-ᴛᴇᴄʜ*`, contextInfo: { mentionedJid: [num] } });
+                    conn.sendMessage(anu.id, { text: `Hi @${num.split("@")[0]}, Welcome to ${metadata.subject}\nFeel Free To Introduce Your Self To The Group\n\n*© 𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰*`, contextInfo: { mentionedJid: [num] } });
                 } else if (anu.action == 'remove') {
-                    conn.sendMessage(anu.id, { text: `Goodbye @${num.split("@")[0]}!\nSee You Next Time\n\n*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ-ᴛᴇᴄʜ*`, contextInfo: { mentionedJid: [num] } });
+                    conn.sendMessage(anu.id, { text: `Goodbye @${num.split("@")[0]}!\nSee You Next Time\n\n*© 𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰*`, contextInfo: { mentionedJid: [num] } });
                 }
             }
         });
