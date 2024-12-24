@@ -7,186 +7,109 @@ const { Buffer } = require('buffer');
 const GOOGLE_API_KEY = 'AIzaSyDebFT-uY_f82_An6bnE9WvVcgVbzwDKgU'; // Replace with your Google API key
 const GOOGLE_CX = '45b94c5cef39940d1'; // Replace with your Google Custom Search Engine ID
 
-// ---------------------- Song Download -----------------------
+
+const {cmd , commands} = require('../command')
+const fg = require('api-dylux')
+const yts = require('yt-search')
 cmd({
-    pattern: 'song',
-    desc: 'download songs',
-    react: "🎧",
-    category: 'download',
+    pattern: "song",
+    desc: "To download songs.",
+    react: "🎵",
+    category: "download",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+if(!q) return reply("Please give me a url or title")  
+const search = await yts(q)
+const data = search.videos[0];
+const url = data.url
+    
+    
+let desc = `
+*_🐦‍🔥QUEEN SITHU MD SONG DOWNLOADER🐦‍🔥_*
 
-      const snm = [2025];
-        
-        // The quoted message template
-        const qMessage = {
-            key: {
-                fromMe: false,
-                participant: "0@s.whatsapp.net",
-                remoteJid: "status@broadcast"
-            },
-            message: {
-                orderMessage: {
-                    itemCount: snm[Math.floor(Math.random() * snm.length)], // Random selection
-                    status: 1,
-                    surface: 1,
-                    message: `💚𝐐𝐔𝐄𝐄𝐍 𝐒𝐈𝐓𝐇𝐔-𝐌𝐃 𝐌𝐑 𝐓𝐇𝐀𝐑𝐔𝐒𝐇𝐀💚`,
-                    orderTitle: "",
-                    sellerJid: '94704227534@s.whatsapp.net'
-                }
-            }
-        };
-      
-        if (!q) return reply('*Please enter a query or a url !*');
+🎵 *Song Found!* 
 
-        const search = await yts(q);
-        const data = search.videos[0];
-        const url = data.url;
+➥ *Title:* ${data.title} 
+➥ *Duration:* ${data.timestamp} 
+➥ *Views:* ${data.views} 
+➥ *Uploaded On:* ${data.ago} 
+➥ *Link:* ${data.url} 
 
-        let desc = `*🐦‍🔥 QUEEN SITHU MD SONG DOWNLOADER 🐦‍🔥*
+> *create by Mr tharusha*
+ 
+ 
+> *@ 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰* 
+`
 
-*|__________________________*
-*|-ℹ️ 𝗧𝗶𝘁𝗹𝗲 :* ${data.title}
-*|-🕘 𝗧𝗶𝗺𝗲 :* ${data.timestamp}
-*|-📌 𝗔𝗴𝗼 :* ${data.ago}
-*|-📉 𝗩𝗶𝗲𝘄𝘀 :* ${data.views}
-*|-🔗 𝗟𝗶𝗻𝗸 :* ${data.url}
-*|__________________________*
+await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
-*🔢 Reply Below Number :*
+//download audio
 
-*1 Audio File🎶*
-*2 Document File📁*
+let down = await fg.yta(url)
+let downloadUrl = down.dl_url
 
-*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 𝙼𝙳 👨‍💻*`;
+//send audio message
+await conn.sendMessage(from,{audio: {url:downloadUrl},mimetype:"audio/mpeg"},{quoted:mek})
+await conn.sendMessage(from,{document: {url:downloadUrl},mimetype:"audio/mpeg",fileName:data.title + ".mp3",caption:"*👨‍💻© 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰👨‍💻*"},{quoted:mek})
 
-        const vv = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
+}catch(e){
+console.log(e)
+  reply('𝐶𝑎𝑛𝑡 𝐹𝑖𝑛𝑑 α ѕσηg')
+}
+})
 
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-            if (!msg.message || !msg.message.extendedTextMessage) return;
-
-            const selectedOption = msg.message.extendedTextMessage.text.trim();
-
-            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
-                switch (selectedOption) {
-                    case '1':
-                        let down = await fg.yta(url);
-                        let downloadUrl = down.dl_url;
-                        await conn.sendMessage(from, { audio: { url:downloadUrl }, caption: '*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰 👨‍💻*', mimetype: 'audio/mpeg'},{ quoted: qMessage });
-                        break;
-                    case '2':               
-                        // Send Document File
-                        let downdoc = await fg.yta(url);
-                        let downloaddocUrl = downdoc.dl_url;
-                        await conn.sendMessage(from, { document: { url:downloaddocUrl }, caption: '*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰 👨‍💻*', mimetype: 'audio/mpeg', fileName:data.title + ".mp3"}, { quoted: qMessage });
-                        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
-                        break;
-                    default:
-                        reply("Invalid option. Please select a valid option🔴");
-                }
-
-            }
-        });
-
-    } catch (e) {
-        console.error(e);
-        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
-        reply('An error occurred while processing your request.');
-    }
-});
-
-//==================== Video downloader =========================
+//====================video_dl=======================
 
 cmd({
-    pattern: 'video',
-    desc: 'download videos',
-    react: "🎬",
-    category: 'download',
+    pattern: "video",
+    desc: "To download videos.",
+    react: "🎥",
+    category: "download",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        const snm = [2025];
-        
-        // The quoted message template
-        const qMessage = {
-            key: {
-                fromMe: false,
-                participant: "0@s.whatsapp.net",
-                remoteJid: "status@broadcast"
-            },
-            message: {
-                orderMessage: {
-                    itemCount: snm[Math.floor(Math.random() * snm.length)], // Random selection
-                    status: 1,
-                    surface: 1,
-                    message: `💚𝐐𝐔𝐄𝐄𝐍 𝐒𝐈𝐓𝐇𝐔-𝐌𝐃 𝐌𝐑 𝐓𝐇𝐀𝐑𝐔𝐒𝐇𝐀💚`,
-                    orderTitle: "",
-                    sellerJid: '94704227534@s.whatsapp.net'
-                }
-            }
-        };
-        
-        if (!q) return reply('*Please enter a query or a url !*');
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+if(!q) return reply("Please give me a url or title")  
+const search = await yts(q)
+const data = search.videos[0];
+const url = data.url
+    
+    
+let desc = `
+*_🐦‍🔥QUEEN SITHU MD VIDEO DOWNLOADRE🐦‍🔥_*
 
-        const search = await yts(q);
-        const data = search.videos[0];
-        const url = data.url;
+🎥 *Video Found!* 
 
-        let desc = `*🐦‍🔥 QUEEN SITHU MD VIDEO DOWNLOADER 🐦‍🔥*
-*|__________________________*
-*|-ℹ️ 𝗧𝗶𝘁𝗹𝗲 :* ${data.title}
-*|-🕘 𝗧𝗶𝗺𝗲 :* ${data.timestamp}
-*|-📌 𝗔𝗴𝗼 :* ${data.ago}
-*|-📉 𝗩𝗶𝗲𝘄𝘀 :* ${data.views}
-*|-🔗 𝗟𝗶𝗻𝗸 :* ${data.url}
-*|__________________________*
+➥ *Title:* ${data.title} 
+➥ *Duration:* ${data.timestamp} 
+➥ *Views:* ${data.views} 
+➥ *Uploaded On:* ${data.ago} 
+➥ *Link:* ${data.url} 
 
-*🔢 Reply Below Number :*
+🎬 *Enjoy the video brought to you by*  
 
-*1 Video File🎬*
-*2 Document File📁*
 
-*🔢 Reply Below Number :*
+> *© 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰* 
+`
 
-*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄 𝙼𝙳 👨‍💻*`;
+await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
-        const vv = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
+//download video
 
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-            if (!msg.message || !msg.message.extendedTextMessage) return;
+let down = await fg.ytv(url)
+let downloadUrl = down.dl_url
 
-            const selectedOption = msg.message.extendedTextMessage.text.trim();
+//send video message
+await conn.sendMessage(from,{video: {url:downloadUrl},mimetype:"video/mp4"},{quoted:mek})
+await conn.sendMessage(from,{document: {url:downloadUrl},mimetype:"video/mp4",fileName:data.title + ".mp4",caption:"*👨‍💻© 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰👨‍💻*"},{quoted:mek})
 
-            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
-                switch (selectedOption) {
-                    case '1':
-                        let downvid = await fg.ytv(url);
-                        let downloadvUrl = downvid.dl_url;
-                        await conn.sendMessage(from, { video : { url:downloadvUrl }, caption: '*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰 👨‍💻*', mimetype: 'video/mp4'},{ quoted: qMessage });
-                        break;
-                    case '2':
-                        let downviddoc = await fg.ytv(url);
-                        let downloadvdocUrl = downviddoc.dl_url;
-                        await conn.sendMessage(from, { document: { url:downloadvdocUrl }, caption: '*👨‍💻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙸𝚃𝙷𝚄-𝙼𝙳 𝙼𝚁 𝚃𝙷𝙰𝚁𝚄𝚂𝙷𝙰👨‍💻*', mimetype: 'video/mp4', fileName:data.title + ".mp4" }, { quoted: qMessage });
-                        break;
-                    default:
-                        reply("Invalid option. Please select a valid option🔴");
-                }
-
-            }
-        });
-
-    } catch (e) {
-        console.error(e);
-        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
-        reply('An error occurred while processing your request.');
-    }
-});
+}catch(e){
+console.log(e)
+  reply('𝐶𝑎𝑛𝑡 𝐹𝑖𝑛𝑑 α νι∂єσ')
+}
+})
 
 
 //===================== img downloader ========================
